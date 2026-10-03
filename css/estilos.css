@@ -1,0 +1,109 @@
+/* ============================================================
+   estilos.css — Brisa Moda
+   Estilos PROPIOS. Se cargan después de Bootstrap para poder
+   ajustar su aspecto sin modificar los archivos de Bootstrap.
+   ============================================================ */
+   /* ===== PASO 7: Identidad visual de novaPhone ===== */
+
+/* 1. Colores de la marca en variables */
+:root {
+  --nova-coral: #e76f51;
+  --nova-coral-oscuro: #c4553a;
+  --nova-arena: #f6efe6;
+}
+
+/* 2. Fuente de toda la página */
+body {
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* 3. Utilidades propias de color */
+.text-coral {
+  color: var(--nova-coral);
+}
+
+.bg-arena {
+  background-color: var(--nova-arena);
+}
+
+/* 4. Botón con el color principal de la marca */
+.btn-coral {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--nova-coral);
+  --bs-btn-border-color: var(--nova-coral);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--nova-coral-oscuro);
+  --bs-btn-hover-border-color: var(--nova-coral-oscuro);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--nova-coral-oscuro);
+  --bs-btn-active-border-color: var(--nova-coral-oscuro);
+  --bs-btn-focus-shadow-rgb: 231, 111, 81;
+}
+
+/* 5. Tarjetas de producto */
+.tarjeta-producto .card-img-top {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.tarjeta-producto {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+/* 6. Categorías: fotos uniformes y efecto zoom al pasar el mouse */
+.categoria-img {
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.categoria img {
+  transition: transform 0.3s ease;
+}
+
+.categoria:hover img {
+  transform: scale(1.05);
+}
+
+.categoria .card-img-overlay {
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.6));
+}
+
+/* 7. Desplazamiento suave de menús */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* 8. Accesibilidad para animación reducida */
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-producto,
+  .categoria img {
+    transition: none;
+  }
+}
+/* Fuerza a que todas las imágenes mantengan una misma altura fija y recorten lo sobrante */
+.categoria-img {
+  height: 280px; /* Puedes ajustar esta altura según prefieras */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Agrega una sombra oscura en la parte inferior para que la letra resalte siempre */
+.categoria-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+/* Efecto hover elegante al pasar el cursor */
+.categoria {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25) !important;
+}

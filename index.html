@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaPhone | Tienda de celulares y tecnología</title>
+
+  <!-- Fuentes de la tienda (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+
+  <!-- Bootstrap 5.3.8 (CSS) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Íconos de Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- Nuestros estilos (siempre después de Bootstrap) -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+  <!-- PASO 2: BARRA DE NAVEGACIÓN ===== -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-body border-bottom" aria-label="Menú principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#inicio">
+          <i class="bi bi-bag-heart"></i>
+          Nova <span class="fw-light">Phone</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuTienda"
+          aria-controls="menuTienda" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuTienda">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#categorias">Categorías</a></li>
+            <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#preguntas">Preguntas</a></li>
+          </ul>
+
+          <button class="btn btn-outline-dark position-relative" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#panelCarrito" aria-controls="panelCarrito" data-bs-title="Ver carrito"
+            data-bs-placement="bottom">
+            <i class="bi bi-cart3"></i> Carrito
+            <span id="contadorCarrito"
+              class="badge text-bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ====== SECCIÓN PRINCIPAL (HERO) ====== -->
+    <section class="py-5 bg-body-tertiary" id="inicio">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-md-6 text-center text-md-start">
+            <span class="badge text-bg-dark mb-3">Lanzamientos 2026</span>
+            <h1 class="display-4 fw-bold">Tecnología de vanguardia a tu alcance</h1>
+            <p class="lead text-body-secondary my-3">
+              Encuentra los últimos smartphones, garantizados y al mejor precio del mercado.
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center justify-content-md-start">
+              <a href="#productos" class="btn btn-dark btn-lg px-4">Ver teléfonos</a>
+              <a href="#categorias" class="btn btn-outline-dark btn-lg px-4">Marcas</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="img/shopping.webp" class="img-fluid rounded-4 shadow" width="800" height="800"
+              alt="Teléfono inteligente de última generación">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASO 4: BENEFICIOS ===== -->
+    <section class="py-4 border-bottom">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col d-flex align-items-center gap-3">
+            <i class="bi bi-truck fs-2"></i>
+            <div>
+              <p class="fw-semibold mb-0">Envío gratis y asegurado</p>
+              <p class="small text-body-secondary mb-0">En compras desde $150.000</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-center gap-3">
+            <i class="bi bi-patch-check fs-2"></i>
+            <div>
+              <p class="fw-semibold mb-0">Garantía oficial</p>
+              <p class="small text-body-secondary mb-0">1 año de garantía en todos los equipos</p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-center gap-3">
+            <i class="bi bi-shield-check fs-2"></i>
+            <div>
+              <p class="fw-semibold mb-0">Pago seguro</p>
+              <p class="small text-body-secondary mb-0">Tarjeta, PSE o contraentrega</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   <!-- ===== CARRUSEL DE PROMOCIONES ===== -->
+<section class="py-4">
+  <div class="container">
+    <div id="carruselPromos" class="carousel slide rounded-4 overflow-hidden shadow-sm bg-light" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carruselPromos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Promoción 1"></button>
+        <button type="button" data-bs-target="#carruselPromos" data-bs-slide-to="1" aria-label="Promoción 2"></button>
+        <button type="button" data-bs-target="#carruselPromos" data-bs-slide-to="2" aria-label="Promoción 3"></button>
+      </div>
+      <div class="carousel-inner">
+        
+        <!-- Ítem 1 -->
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center align-items-center bg-light" style="height: 380px;">
+            <img src="img/18.jpeg" class="d-block mh-100 mw-100" alt="Lanzamiento iPhone 18 Pro Max" style="object-fit: contain;">
+          </div>
+          <div class="carousel-caption bg-dark bg-opacity-60 rounded-3 p-3 mb-2">
+            <h3 class="fw-bold fs-4 m-0">Nuevo iPhone 18 Pro Max</h3>
+            <p class="d-none d-md-block small m-0 mt-1">Llévatelo hoy con envío express a todo el país y garantía oficial.</p>
+          </div>
+        </div>
+
+        <!-- Ítem 2 -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center align-items-center bg-light" style="height: 380px;">
+            <img src="img/16.jpeg" class="d-block mh-100 mw-100" alt="Envío gratis" style="object-fit: contain;">
+          </div>
+          <div class="carousel-caption bg-dark bg-opacity-60 rounded-3 p-3 mb-2">
+            <h3 class="fw-bold fs-4 m-0">Envío gratis en Tecnología</h3>
+            <p class="d-none d-md-block small m-0 mt-1">En todas tus compras superiores a $300.000 COP.</p>
+          </div>
+        </div>
+
+        <!-- Ítem 3 -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center align-items-center bg-light" style="height: 380px;">
+            <img src="img/pro.webp" class="d-block mh-100 mw-100" alt="Descuento Accesorios" style="object-fit: contain;">
+          </div>
+          <div class="carousel-caption bg-dark bg-opacity-60 rounded-3 p-3 mb-2">
+            <h3 class="fw-bold fs-4 m-0">Hasta 30% OFF en Audio</h3>
+            <p class="d-none d-md-block small m-0 mt-1">Equípate con lo mejor en AirPods y Audífonos Pro esta semana.</p>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carruselPromos" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon filter-dark" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carruselPromos" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+    <!-- PASO 5: CATEGORÍAS ===== -->
+    <section class="py-5" id="categorias">
+      <div class="container">
+        <h2 class="text-center mb-4 fw-bold">Compra por categoría</h2>
+        <div class="row g-4">
+
+          <!-- Categoría 1: Smartphones -->
+          <div class="col-md-4">
+            <a href="#productos"
+              class="card text-white border-0 text-decoration-none overflow-hidden rounded-4 shadow-sm categoria">
+              <img src="img/galaxy.jpg" class="card-img categoria-img" alt="Smartphones">
+              <div class="card-img-overlay d-flex align-items-end p-4 categoria-overlay">
+                <h3 class="h4 mb-0 fw-bold">Smartphones</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- Categoría 2: Tablets -->
+          <div class="col-md-4">
+            <a href="#productos"
+              class="card text-white border-0 text-decoration-none overflow-hidden rounded-4 shadow-sm categoria">
+              <img src="img/tablets.jpg" class="card-img categoria-img" alt="Tablets">
+              <div class="card-img-overlay d-flex align-items-end p-4 categoria-overlay">
+                <h3 class="h4 mb-0 fw-bold">Tablets</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- Categoría 3: Accesorios -->
+          <div class="col-md-4">
+            <a href="#productos"
+              class="card text-white border-0 text-decoration-none overflow-hidden rounded-4 shadow-sm categoria">
+              <img src="img/acce.webp" class="card-img categoria-img" alt="Accesorios">
+              <div class="card-img-overlay d-flex align-items-end p-4 categoria-overlay">
+                <h3 class="h4 mb-0 fw-bold">Accesorios</h3>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTOS DESTACADOS ===== -->
+    <section class="py-5 bg-body-tertiary" id="productos">
+      <div class="container">
+        <h2 class="text-center mb-4 fw-bold">Productos destacados</h2>
+
+        <!-- Botones para filtrar por categoría -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+          <button type="button" class="btn btn-coral btn-filtro active" data-filtro="todos">Todos</button>
+          <button type="button" class="btn btn-outline-dark btn-filtro" data-filtro="smartphones">Smartphones</button>
+          <button type="button" class="btn btn-outline-dark btn-filtro" data-filtro="tablets">Tablets</button>
+          <button type="button" class="btn btn-outline-dark btn-filtro" data-filtro="accesorios">Accesorios</button>
+        </div>
+
+        <!-- Grid de Productos -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+
+          <!-- Producto 1: Smartphone (Nuevo) -->
+          <div class="col" data-categoria="smartphones">
+            <div class="card h-100 tarjeta-producto position-relative">
+              <span class="badge text-bg-success position-absolute top-0 start-0 m-2">Nuevo</span>
+              <img src="img/18.jpeg" class="card-img-top h-auto" width="600" height="750" alt="novaPhone Pro X 256GB">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-1">Smartphones</p>
+                <h3 class="h6 card-title fw-bold">Iphone 18 pro max</h3>
+                <p class="mb-0">
+                  <span class="fw-bold text-dark">$6.000.000</span>
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+                <button type="button" class="btn btn-dark btn-sm flex-grow-1 btn-agregar"
+                  data-nombre="Iphone 18 pro max" data-precio="6000000">
+                  <i class="bi bi-bag-plus"></i> Agregar
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#modalProducto" data-nombre="Iphone 18 pro max" data-precio="6000000"
+                  data-imagen="img/18.jpeg"
+                  data-descripcion="Smartphone de última generación con pantalla Super Retina XDR, chip A18 Pro y triple cámara avanzada."
+                  aria-label="Vista rápida">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Producto 2: Smartphone (En oferta) -->
+          <div class="col" data-categoria="smartphones">
+            <div class="card h-100 tarjeta-producto position-relative">
+              <span class="badge text-bg-danger position-absolute top-0 start-0 m-2">-15 %</span>
+              <img src="img/16.jpeg" class="card-img-top h-auto" width="600" height="750" alt="novaPhone Lite 128GB">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-1">Smartphones</p>
+                <h3 class="h6 card-title fw-bold">Iphone 16 pro max</h3>
+                <p class="mb-0">
+                  <span class="fw-bold text-danger">$2.700.000</span>
+                  <del class="small text-body-secondary">$3.445.000</del>
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+                <button type="button" class="btn btn-dark btn-sm flex-grow-1 btn-agregar"
+                  data-nombre="Iphone 16 pro max" data-precio="2700000">
+                  <i class="bi bi-bag-plus"></i> Agregar
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#modalProducto" data-nombre="Iphone 16 pro max" data-precio="2700000"
+                  data-imagen="img/16.jpeg"
+                  data-descripcion="Rendimiento excepcional con acabado en titanio, autonomía mejorada y sistema de cámaras pro de 48 MP."
+                  aria-label="Vista rápida">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 3: Tablet (En oferta) -->
+          <div class="col" data-categoria="tablets">
+            <div class="card h-100 tarjeta-producto position-relative">
+              <span class="badge text-bg-danger position-absolute top-0 start-0 m-2">-20 %</span>
+              <img src="img/lenovo.avif" class="card-img-top h-auto" width="600" height="750"
+                alt="novaPad Air 11 pulgadas">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-1">Tablets</p>
+                <h3 class="h6 card-title fw-bold">novaPad Air 11" 128GB</h3>
+                <p class="mb-0">
+                  <span class="fw-bold text-danger">$1.759.000</span>
+                  <del class="small text-body-secondary">$2.199.000</del>
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+                <button type="button" class="btn btn-dark btn-sm flex-grow-1 btn-agregar"
+                  data-nombre="novaPad Air 11&quot; 128GB" data-precio="1759000">
+                  <i class="bi bi-bag-plus"></i> Agregar
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#modalProducto" data-nombre="novaPad Air 11&quot; 128GB" data-precio="1759000"
+                  data-imagen="img/lenovo.avif"
+                  data-descripcion="Tablet ultra ligera de 11 pulgadas con pantalla de alta resolución, ideal para estudio y multimedia."
+                  aria-label="Vista rápida">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 4: Tablet (Nuevo) -->
+          <div class="col" data-categoria="tablets">
+            <div class="card h-100 tarjeta-producto position-relative">
+              <span class="badge text-bg-success position-absolute top-0 start-0 m-2">Nuevo</span>
+              <img src="img/iph.jpeg" class="card-img-top h-auto" width="600" height="750"
+                alt="novaPad Pro 12.9 pulgadas">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-1">Tablets</p>
+                <h3 class="h6 card-title fw-bold">iPad pro</h3>
+                <p class="mb-0">
+                  <span class="fw-bold text-dark">$3.890.000</span>
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+                <button type="button" class="btn btn-dark btn-sm flex-grow-1 btn-agregar" data-nombre="iPad pro"
+                  data-precio="3890000">
+                  <i class="bi bi-bag-plus"></i> Agregar
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#modalProducto" data-nombre="iPad pro" data-precio="3890000"
+                  data-imagen="img/iph.jpeg"
+                  data-descripcion="Potencia profesional con pantalla Liquid Retina XDR y máxima velocidad para tareas exigentes."
+                  aria-label="Vista rápida">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 5: Accesorios (Nuevo) -->
+          <div class="col" data-categoria="accesorios">
+            <div class="card h-100 tarjeta-producto position-relative">
+              <span class="badge text-bg-success position-absolute top-0 start-0 m-2">Nuevo</span>
+              <img src="img/pro.webp" class="card-img-top h-auto" width="600" height="750" alt="Audífonos novaBuds Pro">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-1">Accesorios</p>
+                <h3 class="h6 card-title fw-bold">Audífonos Pro</h3>
+                <p class="mb-0">
+                  <span class="fw-bold text-dark">$450.000</span>
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+                <button type="button" class="btn btn-dark btn-sm flex-grow-1 btn-agregar" data-nombre="Audífonos Pro"
+                  data-precio="450000">
+                  <i class="bi bi-bag-plus"></i> Agregar
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#modalProducto" data-nombre="Audífonos Pro" data-precio="450000"
+                  data-imagen="img/pro.webp"
+                  data-descripcion="Audífonos supraaurales inalámbricos con sonido envolvente y cancelación de ruido activa."
+                  aria-label="Vista rápida">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 6: Accesorios (En oferta) -->
+          <div class="col" data-categoria="accesorios">
+            <div class="card h-100 tarjeta-producto position-relative">
+              <span class="badge text-bg-danger position-absolute top-0 start-0 m-2">-30 %</span>
+              <img src="img/air.png" class="card-img-top h-auto" width="600" height="750" alt="Cargador Rápido 65W">
+              <div class="card-body">
+                <p class="small text-body-secondary mb-1">Accesorios</p>
+                <h3 class="h6 card-title fw-bold">AirPods Pro</h3>
+                <p class="mb-0">
+                  <span class="fw-bold text-danger">$105.000</span>
+                  <del class="small text-body-secondary">$150.000</del>
+                </p>
+              </div>
+              <div class="card-footer bg-transparent border-0 d-flex gap-2 pb-3">
+                <button type="button" class="btn btn-dark btn-sm flex-grow-1 btn-agregar" data-nombre="AirPods Pro"
+                  data-precio="105000">
+                  <i class="bi bi-bag-plus"></i> Agregar
+                </button>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#modalProducto" data-nombre="AirPods Pro" data-precio="105000"
+                  data-imagen="img/air.png"
+                  data-descripcion="Audífonos in-ear inalambricos con diseño ergonómico, audio espacial y estuche de carga rápida."
+                  aria-label="Vista rápida">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== AVISO (TOAST) - novaPhone ===== -->
+          <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+            <div id="avisoCarrito" class="toast align-items-center text-white border-0"
+              style="background-color: var(--nova-coral, #e76f51);" role="status" aria-live="polite" aria-atomic="true">
+              <div class="d-flex">
+                <div class="toast-body fw-semibold">
+                  <i class="bi bi-check-circle-fill me-2"></i>Producto agregado al carrito
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                  aria-label="Cerrar"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PANEL DEL CARRITO (OFFCANVAS) - novaPhone ===== -->
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="panelCarrito" aria-labelledby="tituloCarrito">
+            <div class="offcanvas-header border-bottom bg-arena">
+              <h2 class="offcanvas-title h5 fw-bold" id="tituloCarrito">
+                <i class="bi bi-bag-check text-coral me-1"></i> Tu carrito novaPhone
+              </h2>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column">
+              <ul class="list-group list-group-flush flex-grow-1" id="listaCarrito"></ul>
+              <div class="border-top pt-3">
+                <div class="d-flex justify-content-between fs-5 mb-3">
+                  <span class="fw-semibold">Total:</span>
+                  <strong id="totalCarrito" class="text-coral">$ 0</strong>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="button" class="btn btn-coral" id="btnPagar">Finalizar compra</button>
+                  <button type="button" class="btn btn-outline-danger" id="btnVaciar">
+                    <i class="bi bi-trash"></i> Vaciar carrito
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== VISTA RÁPIDA DEL PRODUCTO (MODAL) ===== -->
+          <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="tituloModalProducto"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="tituloModalProducto">Producto</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <img src="img/18.jpeg" id="modalImagen" class="img-fluid rounded" width="600" height="750"
+                        alt="Imagen del producto">
+                    </div>
+                    <div class="col-md-6">
+                      <p id="modalDescripcion" class="text-body-secondary"></p>
+                      <p id="modalPrecio" class="fs-3 fw-bold"></p>
+
+                      <!-- Botón para agregar desde el modal -->
+                      <button type="button" class="btn btn-dark w-100 mt-3" id="btnAgregarModal">
+                        <i class="bi bi-bag-plus"></i> Agregar al carrito
+                      </button>
+
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ===== BOTÓN VOLVER ARRIBA ===== -->
+          <button type="button" id="btnArriba"
+            class="btn btn-primary rounded-circle shadow position-fixed bottom-0 start-0 m-4 d-none d-flex align-items-center justify-content-center"
+            style="width: 48px; height: 48px; z-index: 1050;" aria-label="Volver arriba" data-bs-title="Volver arriba">
+            <i class="bi bi-arrow-up fs-5"></i>
+          </button>
+
+<!-- ===== 2. PREGUNTAS FRECUENTES ===== -->
+<section class="py-5 bg-body-tertiary" id="preguntas">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h2 class="text-center mb-4 fw-bold">Preguntas Frecuentes</h2>
+        <div class="accordion shadow-sm" id="accordionPreguntas">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta1" aria-expanded="true" aria-controls="pregunta1">
+                ¿Cuánto tarda el envío?
+              </button>
+            </h3>
+            <div id="pregunta1" class="accordion-collapse collapse show" data-bs-parent="#accordionPreguntas">
+              <div class="accordion-body">
+                Entre 2 y 5 días hábiles, según la ciudad de destino.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta2" aria-expanded="false" aria-controls="pregunta2">
+                ¿Los productos cuentan con garantía?
+              </button>
+            </h3>
+            <div id="pregunta2" class="accordion-collapse collapse" data-bs-parent="#accordionPreguntas">
+              <div class="accordion-body">
+                Sí, todos nuestros productos tecnológicos cuentan con 1 año de garantía oficial por defectos de fábrica.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta3" aria-expanded="false" aria-controls="pregunta3">
+                ¿Qué medios de pago aceptan?
+              </button>
+            </h3>
+            <div id="pregunta3" class="accordion-collapse collapse" data-bs-parent="#accordionPreguntas">
+              <div class="accordion-body">
+                Tarjeta débito y crédito, PSE, Nequi y pago contraentrega.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. SUSCRIPCIÓN ===== -->
+<section class="py-5 bg-dark text-white" data-bs-theme="dark" id="suscripcion">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-md-8 col-lg-6">
+        <h2 class="fw-bold">Recibe ofertas exclusivas</h2>
+        <p class="opacity-75 mb-4">Suscríbete y obtén 10 % de descuento en tu primera compra.</p>
+        <form id="formSuscripcion" class="needs-validation text-start" novalidate>
+          <div class="input-group has-validation mb-3">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input type="email" class="form-control" id="correoSuscripcion" placeholder="tu@correo.com" aria-label="Correo electrónico" required>
+            <button class="btn btn-primary px-4" type="submit">Suscribirme</button>
+            <div class="invalid-feedback">Escribe un correo válido.</div>
+          </div>
+          <div class="form-check d-flex justify-content-center gap-2">
+            <input class="form-check-input" type="checkbox" id="aceptoDatos" required>
+            <label class="form-check-label small" for="aceptoDatos">
+              Acepto el tratamiento de mis datos personales.
+            </label>
+            <div class="invalid-feedback">Debes aceptar para suscribirte.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+          <!-- ===== PIE DE PÁGINA ===== -->
+          <footer class="py-5 border-top">
+            <div class="container">
+              <div class="row g-4">
+                <div class="col-md-5">
+                  <p class="fs-5 fw-bold mb-2"><i class="bi bi-phone"></i> NovaPhone</p>
+                  <p class="text-body-secondary small">
+                    Tecnología e innovación al alcance de tus manos.
+                  </p>
+                </div>
+                <div class="col-6 col-md-3">
+                  <p class="fw-semibold">Tienda</p>
+                  <ul class="list-unstyled small">
+                    <li><a href="#categorias" class="link-secondary">Categorías</a></li>
+                    <li><a href="#productos" class="link-secondary">Productos</a></li>
+                    <li><a href="#preguntas" class="link-secondary">Preguntas</a></li>
+                  </ul>
+                </div>
+                <div class="col-6 col-md-4">
+                  <p class="fw-semibold">Síguenos</p>
+                  <div class="d-flex gap-3 fs-4">
+                    <a href="#" class="link-dark" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="link-dark" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="link-dark" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <p class="text-center text-body-secondary small mb-0">
+                2026 NovaPhone - Proyecto académico SENA ADSO
+              </p>
+            </div>
+          </footer>
+
+          <!-- Bootstrap 5.3.8 (JavaScript + Popper) -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+          <!-- Nuestro JavaScript -->
+          <script src="js/tienda.js"></script>
+</body>
+
+</html>
